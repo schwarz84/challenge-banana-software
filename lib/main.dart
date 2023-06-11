@@ -11,6 +11,9 @@ class AppState extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
+          ChangeNotifierProvider(
+              create: (context) => AuthService()
+          ),
         ChangeNotifierProvider(
             create: (context) => ProductsServices())
       ],
@@ -26,7 +29,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Challenge 2023',
-      initialRoute: 'home',
+      initialRoute: 'login',
       routes: {
         'login': (_) => LoginScreen(),
         'home': (_) => HomeScreen(),

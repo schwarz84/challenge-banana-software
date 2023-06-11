@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_challenge_2023/services/auth_service.dart';
 import 'package:provider/provider.dart';
 
 import '../ui/inputs.dart';
@@ -57,7 +58,7 @@ class _LoginForm extends StatelessWidget {
                 labelText: 'Usuario',
                 prefixIcon: Icons.person
               ),
-              onChanged: (value) => loginForm.usuario = value,
+              onChanged: (value) => loginForm.username = value,
               validator: (input) {
                 return input != null && input.isNotEmpty
                 ? PatternValidator.inputPatternValidator(input: input)
@@ -93,12 +94,22 @@ class _LoginForm extends StatelessWidget {
                   style: TextStyle(color: Colors.white, fontSize: 30)
                 )
               ),
-              onPressed: loginForm.isLoading ? null : () {
+              onPressed: loginForm.isLoading ? null : () async {
+                FocusScope.of(context).unfocus();
+                final authService = Provider.of<AuthService>(context, listen: false);
                 if (!loginForm.isValidForm()) return;
 
                 loginForm.isLoading = true;
 
-                Navigator.pushReplacementNamed(context, 'home');
+                final String? errorLogin = await authService.login(loginForm.username, loginForm.password);
+                if (errorLogin == null) {
+                  Navigator.pushReplacementNamed(context, 'home');
+                } else {
+                  print(errorLogin);
+                }
+
+
+                loginForm.isLoading = false;
               }
             )
           ],
