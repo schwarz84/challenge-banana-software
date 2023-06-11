@@ -24,7 +24,10 @@ class ImagesGaleria extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10.0),
                 ),
-                child: Image.network(item, fit: BoxFit.cover),
+                child: FadeInImage.assetNetwork(
+                  placeholder: 'assets/loading.gif',
+                  image: item,
+                  fit: BoxFit.cover),
               );
             },
           );

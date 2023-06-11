@@ -35,6 +35,7 @@ class MyApp extends StatelessWidget {
         'home': (_) => HomeScreen(),
         'product': (_) => ProductScreen()
       },
+      scaffoldMessengerKey: NotificationService.messengerKey,
       theme: ThemeData.light().copyWith(
         scaffoldBackgroundColor: Colors.grey[300],
         appBarTheme: AppBarTheme(

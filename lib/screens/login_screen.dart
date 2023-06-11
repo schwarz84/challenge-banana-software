@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_challenge_2023/services/auth_service.dart';
+import 'package:flutter_challenge_2023/services/services.dart';
 import 'package:provider/provider.dart';
 
 import '../ui/inputs.dart';
@@ -60,7 +61,7 @@ class _LoginForm extends StatelessWidget {
               ),
               onChanged: (value) => loginForm.username = value,
               validator: (input) {
-                return input != null && input.isNotEmpty
+                return input != null
                 ? PatternValidator.inputPatternValidator(input: input)
                 : null;
               },
@@ -75,7 +76,7 @@ class _LoginForm extends StatelessWidget {
               ),
               onChanged: (value) => loginForm.password = value,
               validator: (input) {
-                return input != null && input.isNotEmpty
+                return input != null
                     ? PatternValidator.inputPatternValidator(input: input)
                     : null;
               },
@@ -105,7 +106,7 @@ class _LoginForm extends StatelessWidget {
                 if (errorLogin == null) {
                   Navigator.pushReplacementNamed(context, 'home');
                 } else {
-                  print(errorLogin);
+                  NotificationService.showSnackbar('El nombre de usuario y/o la contraseña son invalidos.');
                 }
 
 

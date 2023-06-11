@@ -23,6 +23,12 @@ class HomeScreen extends StatelessWidget {
                 fontWeight: FontWeight.bold
             ),
           ),
+          leading: IconButton(
+            icon: Icon(Icons.login_outlined),
+            onPressed: () {
+              Navigator.pushReplacementNamed(context, 'login');
+            },
+          ),
           actions: <Widget>[
             IconButton(
               icon: Icon(Icons.search),
