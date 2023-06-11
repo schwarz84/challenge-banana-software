@@ -36,11 +36,11 @@ class MyApp extends StatelessWidget {
       },
       scaffoldMessengerKey: NotificationService.messengerKey,
       theme: ThemeData.light().copyWith(
+        primaryColor: Color(0xFF9E007E),
         scaffoldBackgroundColor: Colors.grey[300],
         appBarTheme: AppBarTheme(
           color: Color(0xFF9E007E)
         ),
-        primaryColor: Color(0xFF9E007E)
     ),
     );
   }

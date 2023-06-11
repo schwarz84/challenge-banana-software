@@ -83,7 +83,7 @@ class _LoginForm extends StatelessWidget {
             MaterialButton(
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
               disabledColor: Colors.grey,
-              color: Color(0xFF9E007E),
+              color: Theme.of(context).primaryColor,
               child: Container(
                 padding: EdgeInsets.symmetric(vertical: 5, horizontal: 80),
                 child: Text(

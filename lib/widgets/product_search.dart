@@ -65,7 +65,7 @@ class ProductsSearch extends SearchDelegate {
         }
         return Center(
           child: CircularProgressIndicator(
-            color: Color(0xFF9E007E),
+            color: Theme.of(context).primaryColor,
           ),
         );
 

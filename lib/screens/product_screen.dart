@@ -40,7 +40,7 @@ class ProductScreen extends StatelessWidget {
           MaterialButton(
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
             disabledColor: Colors.grey,
-            color: Color(0xFF9E007E),
+            color: Theme.of(context).primaryColor,
             child: Container(
                 padding: EdgeInsets.symmetric(vertical: 10, horizontal: 80),
                 child: Text('Agregar al carrito', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 30),)
