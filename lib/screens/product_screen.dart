@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_challenge_2023/screens/screens.dart';
-import 'package:flutter_challenge_2023/services/products_services.dart';
 import 'package:flutter_challenge_2023/services/services.dart';
 import 'package:flutter_challenge_2023/widgets/widgets.dart';
 import 'package:provider/provider.dart';
@@ -51,7 +50,6 @@ class ProductScreen extends StatelessWidget {
             }
           ),
           SizedBox(height: 20)
-
         ],
       ),
     );

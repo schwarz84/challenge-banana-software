@@ -3,7 +3,6 @@ import 'package:flutter_challenge_2023/screens/screens.dart';
 import 'package:flutter_challenge_2023/services/services.dart';
 import 'package:provider/provider.dart';
 
-import '../models/models.dart';
 import '../widgets/widgets.dart';
 
 class HomeScreen extends StatelessWidget {

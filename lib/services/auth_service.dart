@@ -15,7 +15,6 @@ class AuthService extends ChangeNotifier {
 
     final resp = await http.post(url, body: authData);
 
-
     final Map<String, dynamic> decodeResp = json.decode(resp.body);
 
     return decodeResp['message'];

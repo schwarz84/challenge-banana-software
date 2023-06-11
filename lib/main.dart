@@ -22,7 +22,6 @@ class AppState extends StatelessWidget {
   }
 }
 
-
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -40,7 +39,8 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.grey[300],
         appBarTheme: AppBarTheme(
           color: Color(0xFF9E007E)
-        )
+        ),
+        primaryColor: Color(0xFF9E007E)
     ),
     );
   }

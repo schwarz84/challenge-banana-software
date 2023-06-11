@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_challenge_2023/services/auth_service.dart';
 import 'package:flutter_challenge_2023/services/services.dart';
 import 'package:provider/provider.dart';
-
 import '../ui/inputs.dart';
 import '../widgets/widgets.dart';
 import 'package:flutter_challenge_2023/data/pattern_validator.dart';
@@ -108,8 +106,6 @@ class _LoginForm extends StatelessWidget {
                 } else {
                   NotificationService.showSnackbar('El nombre de usuario y/o la contraseña son invalidos.');
                 }
-
-
                 loginForm.isLoading = false;
               }
             )

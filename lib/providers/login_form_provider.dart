@@ -13,9 +13,6 @@ class LoginFormProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-
-
-
   bool isValidForm() {
 
     return formKey.currentState?.validate() ?? false;
