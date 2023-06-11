@@ -41,15 +41,23 @@ class ProductsSearch extends SearchDelegate {
       builder: (BuildContext context, AsyncSnapshot<List<Product>> snapshot) {
         if (snapshot.hasData) {
           final products = snapshot.data!;
+
+          if (products.isEmpty) {
+            return Center(
+              child: Text('No se encontraron resultados para $query',
+                style: TextStyle(fontSize: 18)),
+            );
+          }
+
           return ListView.builder(
             itemCount: products.length,
-            itemBuilder: (context, index) => ListTile(
+            itemBuilder: (BuildContext context, int index) => ListTile(
               leading: Icon(Icons.search),
               title: Text(products[index].title),
-              onTap: () {
-                productsServices.selectedProduct = productsServices.products[index];
+              onTap: () async {
+                await productsServices.getProductById(products[index].id);
                 Navigator.pushNamed(context, 'product');
-              },
+              }
             ),
           );
         } else if (snapshot.hasError) {

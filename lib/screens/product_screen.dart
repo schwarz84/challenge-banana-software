@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_challenge_2023/screens/screens.dart';
 import 'package:flutter_challenge_2023/services/products_services.dart';
 import 'package:flutter_challenge_2023/widgets/widgets.dart';
-import 'package:flutter_challenge_2023/models/models.dart';
 import 'package:provider/provider.dart';
 
 
@@ -11,12 +11,14 @@ class ProductScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    final productService = Provider.of<ProductsServices>(context);
+    final productsServices = Provider.of<ProductsServices>(context);
+
+    if (productsServices.isLoading) return LoadingScreen();
 
     return  Scaffold(
         appBar: AppBar(
           title: Text(
-            productService.selectedProduct!.title,
+            productsServices.selectedProduct!.title,
             style: TextStyle(
             fontWeight: FontWeight.bold
           ),
@@ -29,8 +31,8 @@ class ProductScreen extends StatelessWidget {
               padding: EdgeInsets.all(20),
               child: Column(
                 children: [
-                  ImagesGaleria(urls: productService.selectedProduct?.images),
-                  _DescriptionProduct(productService.selectedProduct!.description, productService.selectedProduct!.price),
+                  ImagesGaleria(urls: productsServices.selectedProduct?.images),
+                  _DescriptionProduct(productsServices.selectedProduct!.description, productsServices.selectedProduct!.price),
                 ],
               ),
             ),

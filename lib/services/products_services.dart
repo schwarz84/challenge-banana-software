@@ -35,12 +35,14 @@ class ProductsServices extends ChangeNotifier {
     return this.products;
   }
 
-  Future<Product> getProductById(int id) async {
+  Future<Product?> getProductById(int id) async {
     final url = Uri.https(_baseUrl, 'products/$id');
     final resp = await http.get(url);
 
     final Map<String, dynamic> productMap = json.decode(resp.body);
-    return Product.fromJson(productMap);
+    selectedProduct = Product.fromJson(productMap);
+    notifyListeners();
+    return null;
   }
 
   Future<List<Product>> searchProducts(String query) async {
